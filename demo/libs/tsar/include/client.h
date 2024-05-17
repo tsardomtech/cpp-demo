@@ -44,7 +44,7 @@ namespace tsar {
 		client() {};
 
 		/// Initializes a new TSAR client using an `app_id` and `client_key` variables.
-		tsar_status_t initialize(client_options_t options);
+		tsar_status_t init(client_options_t options);
 
 		/// Starts an authentication flow which attempts to authenticate the user.
 		/// If the user's HWID is not already authorized, the function opens the user's default browser to authenticate them.
