@@ -5,17 +5,19 @@ int main() {
 
     // Get these credentials from: https://tsar.cc/app/*/settings
     tsar::tsar_status_t status = client.init({ /* app id, client key & debug print */
-      "d45750ee-7c2c-4453-9a90-397007bc1b9d",
-      "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAElfwlA3IWW8+tI4+T0HNYA0ZmaTQEqBrEbygPgoaAvsK68KRvVXJN/IXOthd3ulxv6LCPqdRewAsG7srEmwAzhA==",
+      "8d7bc844-077e-45fe-afbb-4b3642b0914f",
+      "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEzcNYLREd/dNjVqgpkfJo4maY0TAn7HlslV5Q2qo2T1yCdqXqUEn39IIKQ3N+djhLUwlNxbvRz3zJDOFVmcbt4g==",
       true
     });
 
-    if (status == tsar::tsar_status_t::success) {
+    switch (status) {
+    case tsar::tsar_status_t::success:
         printf("User ID: %s\n", client.subscription.user.id.c_str());
-    }
-    else {
+        break;
+    default:
         printf("Auth failed. Status code: %i\n", status);
-    }
+        break;
+    };  
 
     std::cin.get();
     return EXIT_SUCCESS;
